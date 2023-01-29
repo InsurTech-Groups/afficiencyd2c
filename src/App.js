@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import LandingPage from './pages/LandingPage';
 
-function App() {
+
+
+export default function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <NavBar />
+      <ToastContainer limit={1} position="bottom-left" theme="colored" />
 
-export default App;
+      <Routes> 
+        <Route path='/' element={<LandingPage />} />
+      </Routes>
+      <Footer />
+    </div>
+  )
+}

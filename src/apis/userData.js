@@ -1,0 +1,28 @@
+export const userData = {
+
+  code: "",
+  refreshToken: "",
+  accessToken: "",
+  expiresIn: "",
+  arcID: "",
+  messageCode: "",
+  messageText: "",
+  distributerID: "7083",
+  productID: "8140",
+  zipCode: "",
+  city: "",
+  state: "",
+  gender: "",
+  DOB: "",
+  healthStatus: "",
+  ipAddress: "",
+  tabacooUse: "",
+  tabacooTimeline: "",
+  annualQuote: "",
+  quarterlyQuote: "",
+  monthlyQuote: "",
+  semiAnnualQuote: "",
+  coverageAmount: "",
+  term: "",
+
+}

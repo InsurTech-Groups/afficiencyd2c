@@ -1,4 +1,4 @@
-import { MessageText } from "stream-chat-react";
+
 import { userData } from "./userData";
 import $ from 'jquery';
 

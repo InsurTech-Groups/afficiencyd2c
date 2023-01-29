@@ -125,20 +125,20 @@ export const getQuote = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: {
-        arcId: userData.arcID,
-        distributorId: userData.distributerID,
-        productId: userData.productID,
-        gender: userData.gender,
-        dob: userData.DOB,
-        healthStatusRank: userData.healthStatus,
-        state: userData.state,
-        zip: userData.zipCode,
-        ipAddress: userData.ip,
-        term: "10",
-        accessToken: userData.accessToken,
-        tobaccoUse: userData.tabacooTimeline,
-    }
+    body: JSON.stringify({
+      arcId: userData.arcID,
+      distributorId: userData.distributerID,
+      productId: userData.productID,
+      gender: userData.gender,
+      dob: userData.DOB,
+      healthStatusRank: userData.healthStatus,
+      state: userData.state,
+      zip: userData.zipCode,
+      ipAddress: userData.ip,
+      term: "10",
+      accessToken: userData.accessToken,
+      tobaccoUse: userData.tabacooTimeline,
+  })
   })
     .then((response) => response.json())
     .then((data) => { 

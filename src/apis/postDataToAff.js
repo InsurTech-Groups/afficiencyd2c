@@ -136,7 +136,7 @@ export const getQuote = async () => {
       zip: userData.zipCode,
       ipAddress: userData.ip,
       term: "10",
-      accessToken: userData.accessToken,
+      access_token: userData.accessToken,
       tobaccoUse: userData.tabacooTimeline,
   })
   })

@@ -24,12 +24,12 @@ const LandingPage = () => {
   useEffect(() => {
     ipAddress();
     oAuthTokenStart();
-    setLoading(false);
     setArcID(userData.arcID)
+    setLoading(false)
   }, [])
 
 
-  
+
 
 
 
@@ -68,7 +68,7 @@ const LandingPage = () => {
                     <p className="text-lg text-center text-gray-500">
                        
                         {/* Set A loading state */}
-                        {loading ? <p>Loading...</p> : <span>{arcID}</span>}
+                        {loading ? <span>Loading...</span> : <span>{arcID}</span>}
                     </p>
                   </div>
 
@@ -206,7 +206,11 @@ const LandingPage = () => {
                         <button
                           type="submit"
                           className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-6 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          onClick={getQuote(dob, gender, healthStatus, tabacooTime)}
+                            onClick={(e) => {
+                              
+                              e.preventDefault();
+                              getQuote();
+                            }}
                         >
                           Get My Free Instant Quote
                         </button>

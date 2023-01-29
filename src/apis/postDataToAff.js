@@ -10,7 +10,7 @@ export const ipAddress = () => {
     crossDomain: true,
     method: 'GET',
     redirect: "follow",
-    url: `https://ipapi.co/json/?key=${apiKey}`,
+    url: `https://ipapi.co/json/`,
   };
   $.ajax(req).done(function (res) {
     userData.zipCode = res.zipCode;
@@ -118,13 +118,27 @@ export const oAuthTokenStart = () => {
 export const getQuote = async () => {
 
   const url = "https://afficiency-live.whitetac.com/getQuote";
+  console.log(userData)
 
   fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: userData
+    body: {
+        arcId: userData.arcID,
+        distributorId: userData.distributerID,
+        productId: userData.productID,
+        gender: userData.gender,
+        dob: userData.DOB,
+        healthStatusRank: userData.healthStatus,
+        state: userData.state,
+        zip: userData.zipCode,
+        ipAddress: userData.ip,
+        term: "10",
+        accesToken: userData.accessToken,
+        tobaccoUse: userData.tabacooTimeline,
+    }
   })
     .then((response) => response.json())
     .then((data) => { 

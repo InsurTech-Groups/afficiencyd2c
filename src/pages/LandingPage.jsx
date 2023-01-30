@@ -6,6 +6,7 @@ import { ipAddress } from '../apis/postDataToAff';
 import { oAuthTokenStart } from '../apis/postDataToAff';
 import { getQuote } from '../apis/postDataToAff';
 
+
 const LandingPage = () => {
 
   const [gender, setGender] = useState('');
@@ -13,6 +14,7 @@ const LandingPage = () => {
   const [healthStatus, setHealthStatus] = useState('');
   const [tabacooUse, setTabacooUse] = useState(false);
   const [tabacooTime, setTabacooTime] = useState('');
+  const naviate = useNavigate();
 
 
   //  get userData.arcid once it loasds
@@ -26,10 +28,17 @@ const LandingPage = () => {
     oAuthTokenStart();
     setArcID(userData.arcID)
     setLoading(false)
+
+    setTimeout(() => {
+
+      setArcID(userData.arcID)
+      setLoading(false)
+      console.log(userData.arcID)
+    },5000)
+  
   }, [])
 
-
-
+ 
 
 
 
@@ -63,13 +72,17 @@ const LandingPage = () => {
             </div>
             <div className="mt-16 sm:mt-24 lg:col-span-6 lg:mt-0">
               <div className="bg-dark-purple sm:mx-auto sm:w-full sm:max-w-lg sm:overflow-hidden sm:rounded-lg">
-                <div className="px-4 py-8 sm:px-10">
-                  <div className="p-2 bg-input-purple rounded-lg">
-                    <p className="text-lg text-center text-gray-500">
-                       
-                        {/* Set A loading state */}
-                        {loading ? <span>Loading...</span> : <span>{arcID}</span>}
-                    </p>
+                  <div className="px-4 py-8 sm:px-10">
+                    {loading ? <div><p>Loading...</p></div>
+                      : <div className="p-2 bg-input-purple rounded-lg">
+                      <p className="text-lg text-center text-gray-500">
+                         
+                          
+                          {arcID}
+                      </p>
+                          </div>
+                    }
+                    <div>
                   </div>
 
                   <div className="mt-6">
@@ -210,6 +223,7 @@ const LandingPage = () => {
                               
                               e.preventDefault();
                               getQuote();
+                              naviate('/get-quote')
                             }}
                         >
                           Get My Free Instant Quote

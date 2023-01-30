@@ -4,7 +4,6 @@ import $ from 'jquery';
 
 
 export const ipAddress = () => {
-  const apiKey = process.env.REACT_APP_IPAPI_KEY;
   const req = {
     async: true,
     crossDomain: true,
@@ -142,7 +141,12 @@ export const getQuote = async () => {
   })
     .then((response) => response.json())
     .then((data) => { 
-      console.log(data)
+      
+      userData.arcID = data.arcID
+      userData.monthlyQuote = data.monthlyQuote
+      userData.quarterlyQuote = data.quarterlyQuote
+      userData.semiAnnualQuote = data.semiAnnualQuote
+      userData.annualQuote = data.annualQuote
     })
 
 

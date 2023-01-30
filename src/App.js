@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
+import GetQuote from './pages/GetQuote';
 
 
 
@@ -17,6 +18,7 @@ export default function App() {
 
       <Routes> 
         <Route path='/' element={<LandingPage />} />
+        <Route path='/get-quote' element={<GetQuote/> }/>
       </Routes>
       <Footer />
     </div>
